@@ -7767,6 +7767,7 @@ quat4.str=function(a){return"["+a[0]+", "+a[1]+", "+a[2]+", "+a[3]+"]"};
 	};
 	Runtime.prototype.setImageSrc = function (img, src)
 	{
+		img.crossOrigin = "anonymous";
 		if (this.isWKWebView && !this.isAbsoluteUrl(src))
 		{
 			this.fetchLocalFileViaCordovaAsURL(src, function (url)
@@ -19396,6 +19397,7 @@ cr.plugins_.Particles = function(runtime)
 		if (this.is_family)
 			return;
 		this.texture_img = new Image();
+		this.texture_img.crossOrigin = "anonymous";
 		this.texture_img.cr_filesize = this.texture_filesize;
 		this.webGL_texture = null;
 		this.runtime.waitForImageLoad(this.texture_img, this.texture_file);
@@ -20047,6 +20049,7 @@ cr.plugins_.Sprite = function(runtime)
 				else
 				{
 					frameobj.texture_img = new Image();
+					frameobj.texture_img.crossOrigin = "anonymous";
 					frameobj.texture_img.cr_src = frame[0];
 					frameobj.texture_img.cr_filesize = frame[1];
 					frameobj.texture_img.c2webGL_texture = null;
@@ -21106,6 +21109,7 @@ cr.plugins_.Sprite = function(runtime)
 	Acts.prototype.LoadURL = function (url_, resize_, crossOrigin_)
 	{
 		var img = new Image();
+		img.crossOrigin = "anonymous";
 		var self = this;
 		var curFrame_ = this.curFrame;
 		img.onload = function ()
@@ -21233,6 +21237,7 @@ cr.plugins_.Spritefont2 = function(runtime)
 		if (this.is_family)
 			return;
 		this.texture_img = new Image();
+		this.texture_img.crossOrigin = "anonymous";
 		this.runtime.waitForImageLoad(this.texture_img, this.texture_file);
 		this.webGL_texture = null;
 	};
@@ -22004,6 +22009,7 @@ cr.plugins_.TiledBg = function(runtime)
 		if (this.is_family)
 			return;
 		this.texture_img = new Image();
+		this.texture_img.crossOrigin = "anonymous";
 		this.texture_img.cr_filesize = this.texture_filesize;
 		this.runtime.waitForImageLoad(this.texture_img, this.texture_file);
 		this.pattern = null;
@@ -22148,6 +22154,7 @@ cr.plugins_.TiledBg = function(runtime)
 	Acts.prototype.LoadURL = function (url_, crossOrigin_)
 	{
 		var img = new Image();
+		img.crossOrigin = "anonymous";
 		var self = this;
 		img.onload = function ()
 		{
@@ -22202,6 +22209,7 @@ cr.plugins_.Tilemap = function(runtime)
 		if (this.is_family)
 			return;
 		this.texture_img = new Image();
+		this.texture_img.crossOrigin = "anonymous"; 
 		this.texture_img.cr_filesize = this.texture_filesize;
 		this.runtime.waitForImageLoad(this.texture_img, this.texture_file);
 		this.cut_tiles = [];
@@ -25153,6 +25161,7 @@ cr.plugins_.c2canvas = function(runtime)
 	typeProto.onCreate = function()
 	{
 		this.texture_img = new Image();
+		this.texture_img.crossOrigin = "anonymous";
 		this.texture_img.src = this.texture_file;
 		this.texture_img.cr_filesize = this.texture_filesize;
 		this.runtime.wait_for_textures.push(this.texture_img);
