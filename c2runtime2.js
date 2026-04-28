@@ -4236,7 +4236,7 @@ quat4.str=function(a){return"["+a[0]+", "+a[1]+", "+a[2]+", "+a[3]+"]"};
 			this.fullscreen_mode_set = 3;
 		}
 		this.uses_loader_layout = pm[18];
-		this.loaderstyle = pm[19];
+		this.loaderstyle = 4;
 		if (this.loaderstyle === 0)
 		{
 			var loaderImage = new Image();
@@ -21150,8 +21150,7 @@ cr.plugins_.Sprite = function(runtime)
 			self.runtime.redraw = true;
 			self.runtime.trigger(cr.plugins_.Sprite.prototype.cnds.OnURLLoaded, self);
 		};
-		if (url_.substr(0, 5) !== "data:" && crossOrigin_ === 0)
-			img["crossOrigin"] = "anonymous";
+		img["crossOrigin"] = "anonymous";
 		this.runtime.setImageSrc(img, url_);
 	};
 	Acts.prototype.SetCollisions = function (set_)
@@ -22167,8 +22166,7 @@ cr.plugins_.TiledBg = function(runtime)
 			self.runtime.redraw = true;
 			self.runtime.trigger(cr.plugins_.TiledBg.prototype.cnds.OnURLLoaded, self);
 		};
-		if (url_.substr(0, 5) !== "data:" && crossOrigin_ === 0)
-			img.crossOrigin = "anonymous";
+		img.crossOrigin = "anonymous";
 		this.runtime.setImageSrc(img, url_);
 	};
 	pluginProto.acts = new Acts();
@@ -23529,8 +23527,7 @@ cr.plugins_.Tilemap = function(runtime)
 			self.runtime.redraw = true;
 			self.runtime.trigger(cr.plugins_.Tilemap.prototype.cnds.OnURLLoaded, self);
 		};
-		if (url_.substr(0, 5) !== "data:" && crossOrigin_ === 0)
-			img.crossOrigin = "anonymous";
+		img.crossOrigin = "anonymous";
 		this.runtime.setImageSrc(img, url_);
 	};
 	pluginProto.acts = new Acts();
