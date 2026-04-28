@@ -4236,7 +4236,7 @@ quat4.str=function(a){return"["+a[0]+", "+a[1]+", "+a[2]+", "+a[3]+"]"};
 			this.fullscreen_mode_set = 3;
 		}
 		this.uses_loader_layout = pm[18];
-		this.loaderstyle = 4;
+		this.loaderstyle = 0;
 		if (this.loaderstyle === 0)
 		{
 			var loaderImage = new Image();
@@ -4588,6 +4588,7 @@ quat4.str=function(a){return"["+a[0]+", "+a[1]+", "+a[2]+", "+a[3]+"]"};
 		{
 			currentlyActiveImageLoads++;
 			next = imageLoadQueue.shift();
+			next[0].crossOrigin = "anonymous";
 			this.setImageSrc(next[0], next[1]);
 		}
 	};
@@ -4957,8 +4958,7 @@ quat4.str=function(a){return"["+a[0]+", "+a[1]+", "+a[2]+", "+a[3]+"]"};
 			if (window["C2_RegisterSW"])		// note not all platforms use SW
 				window["C2_RegisterSW"]();
 		}
-		if (navigator["splashscreen"] && navigator["splashscreen"]["hide"])
-			navigator["splashscreen"]["hide"]();
+		navigator["splashscreen"]["hide"]();
 		for (i = 0, len = this.types_by_index.length; i < len; i++)
 		{
 			t = this.types_by_index[i];
